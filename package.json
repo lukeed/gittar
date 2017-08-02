@@ -19,8 +19,8 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec"
   },
-  "keywords": [
-  ],
-  "devDependencies": {
+  "keywords": [],
+  "dependencies": {
+    "mk-dirs": "^1.0.0"
   }
 }

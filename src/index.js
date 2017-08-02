@@ -1,5 +1,8 @@
 'use strict';
+const fs = require('fs');
+const path = require('path');
 const https = require('https');
+const mkdir = require('mk-dirs');
 
 function get(uri) {
 	let out = '';
@@ -11,5 +14,10 @@ function get(uri) {
 			r.on('data', str => out += str).on('end', _ => res(out));
 		}).on('error', rej);
 	});
+}
+
+function write(file, data) {
+	file = path.normalize(file);
+	return mkdir(path.dirname(file)).then(_ => fs.writeFileSync(file, data));
 }
 
