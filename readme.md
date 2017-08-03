@@ -15,7 +15,7 @@ All archives are saved to the `$HOME/.gittar` directory with the following struc
 
 By default, new `gittar.fetch` requests will check the local filesystem for a matching tarball _before_ intiating a new remote download!
 
-> **Important:** Please see [`gittar.fetch`]() for exceptions & behaviors!
+> **Important:** Please see [`gittar.fetch`](#gittarfetchrepo-options) for exceptions & behaviors!
 
 
 ## Install
