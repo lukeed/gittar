@@ -21,6 +21,7 @@
   },
   "keywords": [],
   "dependencies": {
-    "mk-dirs": "^1.0.0"
+    "mk-dirs": "^1.0.0",
+    "tar": "^3.1.9"
   }
 }
