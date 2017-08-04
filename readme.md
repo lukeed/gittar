@@ -1,4 +1,4 @@
-# gittar [![Build Status](https://travis-ci.org/lukeed/gittar.svg?branch=master)](https://travis-ci.org/lukeed/gittar)
+# gittar [![TravisCI Status](https://travis-ci.org/lukeed/gittar.svg?branch=master)](https://travis-ci.org/lukeed/gittar) [![AppVeyor Status](https://ci.appveyor.com/api/projects/status/4xj1vr9pyieaoibf?svg=true)](https://ci.appveyor.com/project/lukeed/gittar)
 
 > :guitar: Download and/or Extract git repositories (GitHub, GitLab, BitBucket). Cross-platform and Offline-first!
 
