@@ -19,7 +19,21 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec"
   },
-  "keywords": [],
+  "keywords": [
+    "archive",
+    "bitbucket",
+    "download",
+    "extract",
+    "git",
+    "github",
+    "gitlab",
+    "offline",
+    "offline-first",
+    "repo",
+    "repository",
+    "scaffold",
+    "tarball"
+  ],
   "dependencies": {
     "tar": "^3.1.9"
   },
