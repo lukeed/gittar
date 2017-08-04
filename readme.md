@@ -145,6 +145,8 @@ Default: `process.cwd()`
 
 The target directory to place the archive's contents.
 
+> **Note:** Value will be resolved (see [`path.resolve`](https://nodejs.org/api/path.html#path_path_resolve_paths)) if not already an absolute path.
+
 #### options
 Type: `Object`<br>
 Default: `{ strip:1 }`
