@@ -45,10 +45,26 @@ gittar.fetch('gitlab:Rich-Harris/buble#v0.15.2').then(console.log);
 gittar.fetch('Rich-Harris/buble', { host:'gitlab' }).then(console.log);
 //=> ~/.gittar/gitlab/Rich-Harris/buble/master.tar.gz
 
-const src = '...local file path...';
-const dest =
+const src = '...local file or repo pattern...';
+const dest = '/path/to/foobar';
 
-gittar.extract(src, dest);
+gittar.extract(src, dest, {
+  filter(path, entry) {
+    if (path.includes('package.json')) {
+      let pkg = '';
+      entry.on('data', x => pkg += x).on('end', _ => {
+        const devDeps = JSON.parse(pkg).devDependencies || {};
+        console.log('~> new devDependencies:', Object.keys(devDeps));
+      });
+    }
+
+    if (path.includes('.babelrc')) {
+      return false; // ignore this file!
+    }
+
+    return true; // keep all other files
+  }
+});
 ```
 
 
