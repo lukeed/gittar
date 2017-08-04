@@ -1,6 +1,6 @@
 # gittar [![Build Status](https://travis-ci.org/lukeed/gittar.svg?branch=master)](https://travis-ci.org/lukeed/gittar)
 
-> Download and/or Extract git repositories (GitHub, GitLab, BitBucket). Cross-platform and Offline-first!
+> :guitar: Download and/or Extract git repositories (GitHub, GitLab, BitBucket). Cross-platform and Offline-first!
 
 Gittar is a Promise-based API that downloads `*.tar.gz` files from GitHub, GitLab, and BitBucket.
 
