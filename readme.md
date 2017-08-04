@@ -105,7 +105,7 @@ Default: `github`
 
 The hostname for the repository.
 
-Specifying a "hint" in the [`repo`](#repo) takes precedence over this value.
+Specifying a "hint" in the [`repo`](#repo) will take precedence over this value.
 
 ```js
 fetch('gitlab:user/repo', { host:'bitbucket' });
@@ -127,7 +127,7 @@ Default: `false`
 
 Only attempt to use an existing, cached file. No network requests will be dispatched.
 
-> **Note:** Gittar enacts this option if it detects that there is no network connectivity.
+> **Note:** Gittar enacts this option if it detects that there is no internet connectivity.
 
 
 ### gittar.extract(file, target, options)
@@ -137,13 +137,13 @@ Type: `String`
 
 A filepath to extract. Also accepts a [`repo`](#repo) pattern!
 
-> **Important:** A `repo` pattern will only be parsed (internally) into a filepath. No network requests will be made!
+> **Important:** A `repo` pattern will be parsed (internally) as a filepath. No network requests will be dispatched.
 
 #### target
 Type: `String`<br>
 Default: `process.cwd()`
 
-The target directory to place the archived contents.
+The target directory to place the archive's contents.
 
 #### options
 Type: `Object`<br>
