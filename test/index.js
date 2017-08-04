@@ -11,11 +11,7 @@ const exists = fs.existsSync;
 
 const dir = join(__dirname, 'fixtures');
 
-const wasRemote = ms => {
-  const diff = (Date.now() - ms);
-  console.log('request took: ', diff);
-  return diff > 200; // fair?
-};
+const wasRemote = ms => (Date.now() - ms) > 15;
 
 const cleanup = str => (rimraf.sync(str),str);
 
