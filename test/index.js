@@ -103,3 +103,22 @@ test('gittar.fetch (force master)', t => {
 		});
 	});
 });
+
+test('gittar.fetch (404)', t => {
+	t.plan(5);
+	fn.fetch('https://foo.bar/baz/bat#dev').then().catch(err => {
+		t.pass('caught rejected Promise');
+		t.is(typeof err, 'object', 'received an error object');
+		t.is(Object.keys(fn).length, 2, 'has two keys');
+		t.is(err.code, 404, 'error `code` is 404');
+		t.is(err.message, 'Not Found', 'error `message` is `Not Found`');
+	})
+});
+
+test('gittar.fetch (local 404)', t => {
+	t.plan(2);
+	fn.fetch('https://foo.bar/baz/bat#dev', { useCache:true }).then().catch(err => {
+		t.pass('caught rejected Promise');
+		t.is(err, undefined, 'silently fails');
+	})
+});
