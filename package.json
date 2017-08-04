@@ -1,6 +1,6 @@
 {
   "name": "gittar",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "lukeed/gittar",
   "description": ":guitar: Download and/or Extract git repositories (GitHub, GitLab, BitBucket). Cross-platform and Offline-first!",
   "main": "lib/index.js",
