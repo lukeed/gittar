@@ -134,8 +134,18 @@ test('gittar.fetch (local 404)', t => {
 	})
 });
 
-test('gittar.extract (user/repo)', t => {
+test('gittar.fetch (user/repo) with custom name', t => {
 	t.plan(4);
+	const isOk = validate(t);
+	fn.fetch('lukeed/mri', { name: 'custom-name' }).then(isOk).then(cleanup).then(str => {
+		t.true( str.includes('github'), 'assumes `github` host by default' );
+		t.true( str.includes('master'), 'assumes `master` branch by default' );
+		t.true( str.includes('custom-name'), 'directory includes user-specified name' );
+	});
+});
+
+test('gittar.extract (user/repo)', t => {
+	t.plan(7);
 
 	const isOk = validate(t);
 	const repo = 'lukeed/mri';
@@ -146,10 +156,21 @@ test('gittar.extract (user/repo)', t => {
 		t.is(err, undefined, 'silently fails');
 	}).then(_ => {
 		// ensure file exists
-		fn.fetch(repo).then(zip => {
+		return fn.fetch(repo).then(zip => {
 			fn.extract(zip, tmp).then(isOk).then(str => {
 				t.true(stats(str).isDirectory(), 'creates the directory');
 				cleanup(zip) && cleanup(str);
+			});
+		});
+	}).then(_ => {
+		fn.fetch(repo, { name: 'custom-name' }).then(zip => {
+			t.true( zip.includes('custom-name'), 'directory includes user-specified name' );
+
+			fn.extract(zip, tmp, { name: 'custom-name' }).then(isOk).then(str => {
+				t.true(stats(str).isDirectory(), 'untars in user-specified directory');
+				cleanup(zip) && cleanup(str);
+			}).catch((err) => {
+			  t.fail(err);
 			});
 		});
 	});
