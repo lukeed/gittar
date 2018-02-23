@@ -153,7 +153,7 @@ The name of gittar's cache directory.
 
 ```js
 gittar.fetch('herber/cargo', { name: 'custom' }).then(console.log);
-//=> ~/.custom/github/lukeed/gittar/master.tar.gz
+//=> ~/.custom/github/herber/cargo/master.tar.gz
 ```
 
 ### gittar.extract(file, target, options)
@@ -208,7 +208,7 @@ The name of gittar's cache directory.
 ```js
 gittar.extract('herber/cargo#master', 'foo', { name: 'custom' });
 // Searches in ~/.custom/ for the tarball
-//=> contents: foo/mri-master/**
+//=> contents: foo/cargo-master/**
 ```
 
 ## License
