@@ -145,6 +145,16 @@ Only attempt to use an existing, cached file. No network requests will be dispat
 
 > **Note:** Gittar enacts this option if it detects that there is no internet connectivity.
 
+#### options.dirname
+Type: `String`<br>
+Default: `gittar`
+
+The name of gittar's cache directory.
+
+```js
+gittar.fetch('herber/cargo', { name: 'custom' }).then(console.log);
+//=> ~/.custom/github/herber/cargo/master.tar.gz
+```
 
 ### gittar.extract(file, target, options)
 
@@ -189,6 +199,17 @@ gittar.extract(file, 'foo', { strip:0 });
 //=> contents: foo/mri-master/**
 ```
 
+#### options.name
+Type: `String`<br>
+Default: `gittar`
+
+The name of gittar's cache directory.
+
+```js
+gittar.extract('herber/cargo#master', 'foo', { name: 'custom' });
+// Searches in ~/.custom/ for the tarball
+//=> contents: foo/cargo-master/**
+```
 
 ## License
 
