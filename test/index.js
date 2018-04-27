@@ -49,6 +49,36 @@ test('gittar.fetch (user/repo#tag)', t => {
 	});
 });
 
+test('gittar.fetch with full github link', t => {
+	t.plan(6);
+	const isOk = validate(t);
+	const repo = 'https://github.com/lukeed/mri';
+	fn.fetch(repo).then(isOk).then(foo => {
+		t.true( foo.includes('github'), 'parses `github` hostname' );
+		t.true( foo.includes('master'), 'grabs `master` archive' );
+		// will grab same file
+		fn.fetch(repo, { host:'github' }).then(isOk).then(cleanup).then(bar => {
+			t.pass('accepts `host` object');
+			t.equal(foo, bar, 'resolves same repo/file path');
+		});
+	});
+});
+
+test('gittar.fetch with full gitlab link', t => {
+	t.plan(6);
+	const isOk = validate(t);
+	const repo = 'https://gitlab.com/Rich-Harris/buble';
+	fn.fetch(repo).then(isOk).then(foo => {
+		t.true( foo.includes('gitlab'), 'parses `gitlab` hostname' );
+		t.true( foo.includes('master'), 'grabs `master` archive' );
+		// will grab same file
+		fn.fetch(repo, { host:'gitlab' }).then(isOk).then(cleanup).then(bar => {
+			t.pass('accepts `host` object');
+			t.equal(foo, bar, 'resolves same repo/file path');
+		});
+	});
+});
+
 test('gittar.fetch (host:user/repo#tag)', t => {
 	t.plan(6);
 	const isOk = validate(t);
